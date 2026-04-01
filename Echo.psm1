@@ -11,11 +11,13 @@ function Write-EchoDebug {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
-        [string]$Message
+        [string]$Message,
+
+        [switch]$NoNewline
     )
 
-    Write-Host 'o' -ForegroundColor DarkGray -NoNewline
-    Write-Host " $Message"
+    Write-Host '○' -ForegroundColor DarkGray -NoNewline
+    Write-Host " $Message" -NoNewline:$NoNewline
 }
 
 function Write-EchoInfo {
@@ -26,11 +28,13 @@ function Write-EchoInfo {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
-        [string]$Message
+        [string]$Message,
+
+        [switch]$NoNewline
     )
 
     Write-Host 'i' -ForegroundColor Blue -NoNewline
-    Write-Host " $Message"
+    Write-Host " $Message" -NoNewline:$NoNewline
 }
 
 function Write-EchoSuccess {
@@ -41,11 +45,13 @@ function Write-EchoSuccess {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
-        [string]$Message
+        [string]$Message,
+
+        [switch]$NoNewline
     )
 
-    Write-Host '+' -ForegroundColor Green -NoNewline
-    Write-Host " $Message"
+    Write-Host '✓' -ForegroundColor Green -NoNewline
+    Write-Host " $Message" -NoNewline:$NoNewline
 }
 
 function Write-EchoWarning {
@@ -56,11 +62,13 @@ function Write-EchoWarning {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
-        [string]$Message
+        [string]$Message,
+
+        [switch]$NoNewline
     )
 
     Write-Host '!' -ForegroundColor Yellow -NoNewline
-    Write-Host " $Message"
+    Write-Host " $Message" -NoNewline:$NoNewline
 }
 
 function Write-EchoError {
@@ -71,9 +79,11 @@ function Write-EchoError {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory, Position = 0)]
-        [string]$Message
+        [string]$Message,
+
+        [switch]$NoNewline
     )
 
-    Write-Host 'x' -ForegroundColor Red -NoNewline
-    Write-Host " $Message"
+    Write-Host '✗' -ForegroundColor Red -NoNewline
+    Write-Host " $Message" -NoNewline:$NoNewline
 }
